@@ -1,58 +1,45 @@
-# React Quiz Application
+# React Quiz App
 
-Welcome to the React Quiz Application, a versatile and interactive quiz platform. This application allows you to create and host quizzes for a wide range of purposes, including educational assessments, trivia games, and engaging challenges.
+## Description
+
+This is a React-based quiz app that allows users to take a quiz, answer questions, and keep track of their score. The app includes various features, such as a countdown timer, a highscore, and a structured interface to create an engaging quiz experience.
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-- [Development](#development)
-  - [Running the Development Server](#running-the-development-server)
-- [Customizing the Quiz](#customizing-the-quiz)
-- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [State Management](#state-management)
+- [API Integration](#api-integration)
 
-## Getting Started
+## Features
 
-### Prerequisites
+- Interactive quiz experience with countdown timer.
+- Score tracking and highscore comparison.
+- Error handling for data fetching.
+- Modular component structure for easy maintenance.
+- Real-world scenario to practice React skills.
 
-Before you begin, ensure you have the following software installed on your system:
+## Project Structure
 
-- [Node.js](https://nodejs.org/): This application relies on Node.js for running scripts and managing dependencies. You can download it from the official website.
+The project is structured into different components, each responsible for a specific part of the application. This modularization enhances maintainability and understanding.
 
-## Development
+- `Header`: The top navigation/header component.
+- `MainSection`: The main content area of the app.
+- `Loader`: Displayed while data is being fetched.
+- `Error`: Shown in case of data fetching errors.
+- `StartScreen`: The initial screen before starting the quiz.
+- `Question`: Component responsible for rendering questions.
+- `NextButton`: Handles moving to the next question.
+- `Progress`: Displays the user's progress and score.
+- `FinishScreen`: Shown when the quiz is completed.
+- `Footer`: The app's footer component.
+- `Timer`: Manages the countdown timer.
 
-### Running the Development Server
+## State Management
 
-To start the development server and run the React application, use the following command:
+The app uses the `useReducer` hook for state management. The state is initialized in the `App` component and updated through actions dispatched by the `reducer` function.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## API Integration
 
-This command will start the development server and provide a development version of your quiz application. The server should be accessible at http://localhost:3000. Changes to the code will be hot-reloaded, allowing you to see updates in real-time.
-
-## Customizing the Quiz
-
-Customizing the quiz application is a straightforward process. Consider these key points for customization:
-
-- Data Source: The quiz application fetches data from a JSON file (e.g., data/questions.json). You can replace this file with your own quiz data.
-
-- Questions: Customize quiz questions, answer options, and correct answers in the JSON data source to match your specific quiz content.
-
-- Styling: Modify the application's styling by editing the CSS, adding new components, or incorporating a CSS framework.
-
-- Timer and Scoring: Adjust the time limit for each question (SECS_PER_QUESTION) and customize how points are awarded based on correct answers.
-
-- Adding Features: Extend the application by introducing new features, such as categories, leaderboards, or support for multiplayer quizzes.
-
-## Technologies Used
-
-The React Quiz Application is built using the following technologies:
-
-- React: A popular JavaScript library for building user interfaces.
-- Vite: A fast build tool that enhances the development experience.
-- JSON Server: Used for serving quiz data from a JSON file.
-- ESLint: A tool for identifying and fixing problems in JavaScript code.
-- Google Fonts: The Codystar font is imported from Google Fonts.
+The app fetches quiz questions from a local server. The endpoint used for fetching questions is `http://localhost:9000/questions`. Error handling is implemented for scenarios where data retrieval fails.
